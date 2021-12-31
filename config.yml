@@ -1,0 +1,53 @@
+baseURL: 'https://jontyms.com'
+languageCode: en-us
+title: JontyMS's Blog
+theme: 
+  - hugo-shortcode-gallery
+  - PaperMod
+enableRobotsTXT: true
+env: production
+paginate: 5000
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+params:
+  env: production
+  defaultTheme: auto
+  ShowShareButtons: true
+  ShowReadingTime: true
+  social:
+    rss: true
+    github: 'https://github.com/jontyms'
+  homeInfoParams:
+      Title: Hi there wave
+      Content: >
+       - Welcome to my site
+       - hello
+  editPost:
+      URL: "https://github.com/jontyms/jontyms.github.io"
+      Text: "Suggest Changes" # edit text
+      appendFilePath: true # to append file path to Edit link
+sitemap:
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5
+menu:
+    main:
+        - identifier: About
+          name: About
+          url: /about/
+          weight: 10
+        - identifier: Posts
+          name: Posts
+          url: /posts/
+          weight: 20
+        - name: Search
+          url: search/
+          weight: 10
+          weight: 20
+        - identifier: donate
+          name: Support Me
+          url: /donate
+          weight: 50
