@@ -26,7 +26,6 @@ params:
       Title: 'Hi there!'
       Content: >
        - Welcome to my site
-       - hello
   editPost:
       URL: "https://github.com/jontyms/jontyms.github.io"
       Text: "Suggest Changes" # edit text
