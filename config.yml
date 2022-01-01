@@ -5,6 +5,9 @@ theme:
   - PaperMod
 enableRobotsTXT: true
 env: production
+enableEmoji: true
+enableGitInfo: true
+enableInlineShortcodes: true
 paginate: 5000
 outputs:
   home:
@@ -20,7 +23,7 @@ params:
     rss: true
     github: 'https://github.com/jontyms'
   homeInfoParams:
-      Title: Hi there wave
+      Title: 'Hi there!'
       Content: >
        - Welcome to my site
        - hello
