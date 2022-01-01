@@ -2,7 +2,6 @@ baseURL: 'https://jontyms.com'
 languageCode: en-us
 title: JontyMS's Blog
 theme: 
-  - hugo-shortcode-gallery
   - PaperMod
 enableRobotsTXT: true
 env: production
