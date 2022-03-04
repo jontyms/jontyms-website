@@ -3,6 +3,8 @@ title: "Mailgun Unattended Upgrades Notifications"
 date: 2022-01-27T16:27:12-05:00
 draft: false
 ---
+# No longer recommend
+
 Tested on Ubuntu 20.04. I provide no guarantees. 
 
 This is for you Alex from Selfhosted. No more gmail changing auth schemes and breaking your email alerts. 
