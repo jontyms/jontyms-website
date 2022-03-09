@@ -48,6 +48,10 @@ menu:
           url: search/
           weight: 10
           weight: 20
+        - identifier: quickbits
+          name: quickbits
+          url: /quickbits
+          weight: 21
         - identifier: donate
           name: Support Me
           url: /donate
