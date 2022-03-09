@@ -1,6 +1,7 @@
 ---
 title: "Support Me" # in any language you want
 url: "/donate"
+draft: "true"
 description: "Donation links"
 summary: "Donation links"
 ---
