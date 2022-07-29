@@ -6,14 +6,12 @@ ShowBreadCrumbs: false
 Hi I'm jontyms
 ## My Pc
 * OS: Fedora Linux 35 (KDE Plasma) x86_64 
-* Host: Precision Tower 3620 
 * Shell: zsh
-* Resolution: 1920x1080 
-* DE: Plasma 5.22
-* CPU: Intel Xeon E3-1245 v5 (8) @ 3.900GHz 
-* GPU: Intel HD Graphics P530 
-* GPU: NVIDIA GeForce GTX 1060 6GB 
-* Memory: 48065MiB 
+* DE: Plasma
+* CPU: Intel Core i5-12600K 3.7 GHz 10-Core Processor
+* GPU: NVIDIA GeForce RTX 3070 TI 
+* NZXT H510 Flow ATX Mid Tower Case
+* Memory: 48 GB
 ## Other Hardware
 * Rapsberry pi 4 8gb (my homeserver)
 
