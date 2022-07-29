@@ -11,7 +11,9 @@ Hi I'm jontyms
 * CPU: Intel Core i5-12600K 3.7 GHz 10-Core Processor
 * GPU: NVIDIA GeForce RTX 3070 TI 
 * NZXT H510 Flow ATX Mid Tower Case
-* Memory: 48 GB
+* Memory: 48 GB 
+
+[PC part picker link](https://pcpartpicker.com/list/7t9fnt)
 ## Other Hardware
 * Rapsberry pi 4 8gb (my homeserver)
 
