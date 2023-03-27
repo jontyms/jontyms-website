@@ -13,7 +13,7 @@ draft: false
 - Backups
 - Local backups for devices
 - Logging containers logs
-- Altering 
+- Alerting 
 
 ### Here is the basic plan of how to achieve this
 - Gitea for git server
