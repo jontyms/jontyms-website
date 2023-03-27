@@ -1,9 +1,10 @@
 ---
 title: "Quayproject Setup"
 date: 2023-03-26T15:28:13-04:00
-draft: true
+draft: false
 ---
-Quayproject is the open source version of Redhat Quay, the container registry that powers quay.io. Not a lot of great guides exist for how to setup quay using docker-compose so here it is.
+With docker deleting open source organizations it might be time to selfhost your own container registry.
+Quayproject is the open source version of Redhat Quay, the container registry that powers quay.io. It can be configured as a pull through cache (useful for saving bandwidth). Not a lot of great guides exist for how to setup quay using docker-compose so here it is.
 ```yaml
 ---
 services:
@@ -177,6 +178,6 @@ auth:
     iss: ["quay"]
 ```
 When you are done configuring click valid configuration changes, then click download. Place the download tar in `$QUAY_CONFIG` then run `tar xvf quay-config.tar.gz`.
-Then run `docker compose restart quay`. Everything should now be working
+Then run `docker compose restart quay`. Everything should now be working!!
 ## Comments
 {{< chat quaypoject-setup >}}
