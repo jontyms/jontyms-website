@@ -1,5 +1,5 @@
 ---
-title: "Selfhostingv3"
+title: "Selfhosting v3"
 date: 2023-03-26T15:03:14-04:00
 draft: false
 ---
