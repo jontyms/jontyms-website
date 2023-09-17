@@ -6,7 +6,7 @@ theme:
 enableRobotsTXT: true
 env: production
 enableEmoji: true
-enableGitInfo: true
+enableGitInfo: false
 enableInlineShortcodes: true
 paginate: 5000
 outputs:

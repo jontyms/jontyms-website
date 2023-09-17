@@ -1,4 +1,6 @@
 public/*
 !public/_headers
 .hugo_build.lock
-resources/_gen/
+resources/_gen/.direnv
+result
+.direnv
