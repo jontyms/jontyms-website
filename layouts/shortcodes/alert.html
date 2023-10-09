@@ -1,0 +1,27 @@
+{{ $class := .Get "class" }}
+{{ $class := .Get "class" }}
+{{ $icon := "priority_high" }}
+{{ $color := "#e74e43" }}
+
+{{ if eq $class "success" }}
+    {{ $icon = "check_circle" }}
+    {{ $color = "#28a745" }}
+{{ else if eq $class "warning" }}
+    {{ $icon = "warning" }}
+    {{ $color = "#ffc107" }}
+{{ else if eq $class "info" }}
+    {{ $icon = "info" }}
+    {{ $color = "#72c452" }}
+{{ end }}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<div class="alert alert-{{ with $class }}{{.}}{{end}}" role="alert" style="background-color: {{ $color }};">
+    <style>.alert{
+          border-radius: 25px;
+  background: #72c452;
+  padding: 20px;
+    }</style>
+    <span class="material-symbols-outlined">
+        {{ $icon }}
+    </span>
+    {{ .Inner | markdownify }}
+</div>
