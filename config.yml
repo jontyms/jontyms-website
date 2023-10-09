@@ -19,6 +19,8 @@ params:
   defaultTheme: auto
   ShowShareButtons: true
   ShowReadingTime: true
+  assets:
+    disableHLJS: true
   social:
     rss: true
     github: 'https://github.com/jontyms'
@@ -48,11 +50,15 @@ menu:
           url: search/
           weight: 10
           weight: 20
-        - identifier: quickbits
-          name: quickbits
-          url: /quickbits
-          weight: 21
-        - identifier: donate
-          name: Support Me
-          url: /donate
-          weight: 50
+markup:
+  defaultMarkdownHandler: goldmark
+  highlight:
+    noClasses: false
+  # anchorLineNos = true
+    codeFences: true
+    guessSyntax: true
+  # lineNos = true
+    style: "monokai"
+  goldmark:
+    renderer:
+      unsafe: true
