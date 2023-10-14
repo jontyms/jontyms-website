@@ -1,6 +1,6 @@
 ---
 title: "The Horse Plinko Incident (2023)"
-date: 2023-10-15T07:41:52-04:00
+date: 2023-10-14T07:41:52-04:00
 draft: false 
 ---
 
