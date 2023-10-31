@@ -1,7 +1,10 @@
 ---
 title: "The Horse Plinko Incident (2023)"
 date: 2023-10-14T07:41:52-04:00
-draft: false 
+draft: false
+ShowToc: true
+params:
+  ShowToc: true 
 ---
 
 Hey everyone,
@@ -30,7 +33,7 @@ Much as it always is, the group of cybercriminals that call themselves the “Ho
 HPCC1 has some elements of role play all the competitors were called 'Plinkterns.' We were serving as unpaid interns for our corporate overlords. 
 The scoring consisted 65% uptime checks and 35% injects, which are business tasks related to our duties, requiring a written submission via the official competition Discord. 
 
-{{< bundle-image name="hpcc1_netmap_99.png" alt="Description for screen readers." caption="Some caption" >}}
+{{< bundle-image name="hpcc1_netmap_99.png">}}
 
 For the competition we had 4 boxes we needed to secure 2 windows boxes running dns and wordpress, and 2 linux boxes. One was debian with a mariadb database on it and one was ubuntu with an vsftp server and a apache webgame server on it. The two linux boxes were scored with ssh as well. Our teammates Conner and Kevin handled the windows boxes and me an Ardian handled the linux boxes. (And a mostly ignored splunk box that was out of scope for red team)
 # Preparation
@@ -44,7 +47,7 @@ passwd -l root
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 echo "Protocol 2" >> /etc/ssh/sshd_config
 #SSH whitelist 
-echo "AllowUsers hkeating ubuntu"
+echo "AllowUsers hkeating ubuntu" >> /etc/ssh/sshd_confi
 
 apt install ufw -y
 #metasploit default port
@@ -207,7 +210,7 @@ iptables -I INPUT -p tcp --dport 22 -j DROP
 ```
 At the end of the game we had ftp up but our apache web game was yetted and we didn't have a backup but all our other services were up. 
 
-## Summary of Findings and Future Recommendations
+# Summary of Findings and Future Recommendations
 ### Better Finding of Persistance
 After consulting with the red team after the game we learned the only persistance they had left was a [sliver](https://github.com/BishopFox/sliver) beacon on the game box. It was in /etc/cron.d/scheduled_tasks
 ```crontab

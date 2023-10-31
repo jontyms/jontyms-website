@@ -17,7 +17,9 @@ outputs:
 params:
   env: production
   defaultTheme: auto
-  ShowShareButtons: true
+  ShowShareButtons: false
+  ShowFullTextinRSS: true
+  ShowRssButtonInSectionTermList: true
   ShowReadingTime: true
   assets:
     disableHLJS: true
@@ -29,9 +31,8 @@ params:
       Content: >
        - Welcome to my site
   editPost:
-      URL: "https://github.com/jontyms/jontyms.github.io"
+      URL: "https://github.com/jontyms/jontyms-website"
       Text: "Suggest Changes" # edit text
-      appendFilePath: true # to append file path to Edit link
 sitemap:
   changefreq: monthly
   filename: sitemap.xml
