@@ -1,9 +1,13 @@
 ---
-title: "New Class Of Vulnerabilities Discovered"
+title: "New Class Of Vulnerabilities Discovered (April Fools)"
 date: 2024-04-01T09:41:52-04:00
 draft: false
 author: "Jonathan Styles"
 ---
+
+{{< alert class="alert" >}}
+**April Fools!** This blog post is a joke and does not represent real research. We hope you enjoyed it!
+{{< /alert >}}
 
 In collaboration with the [NIST](https://www.nist.gov/), [CISA](https://www.cisa.gov/) and [The University of South Florida](http://ucfrejects.com) I am pleased to announce research regarding a new class of vulnerability called Remote Bankruptcy Exploits (RBE).
 
