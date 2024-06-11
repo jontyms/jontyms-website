@@ -7,6 +7,13 @@ For the past year I have been involved in running a private cloud for [Hack@UCF]
 
 This began is spring 2019 when the [Lockheed Martin Cyber Innovation Lab](https://www.ucf.edu/pegasus/ucf-opens-lockheed-martin-cyber-innovation-lab/) was opened. Along with this Hack@UCF also gained access to a fund for equipping and upkeep of the lab. The decision was made to invest in server hardware in order to provide the club with a private cloud platform. I have been involved since September 2023, and I am now in charge of the project. 
 
+{{< alert class="success" >}}
+### Support Hack@UCF: Empower the Next Generation of Cybersecurity Experts
+
+At Hack@UCF, we are dedicated to fostering a dynamic learning environment where students can explore and excel in the field of cybersecurity. By sponsoring Hack@UCF, you become a vital part of our mission to develop skilled cybersecurity professionals. Together, we can create opportunities for learning, growth, and innovation.
+
+For more information on sponsorship opportunities, please contact us [here](https://www.hackucf.org/sponsorship).
+{{< /alert >}}
 
 # The Hardware 
 
