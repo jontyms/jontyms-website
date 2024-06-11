@@ -1,7 +1,8 @@
 ---
 title: "Building a Private Cloud: A DevOps Approach"
-date: 2024-06-12T13:58:02+02:00
+date: 2024-06-11T13:58:02+02:00
 draft: False
+ShowToc: true
 ---
 For the past year I have been involved in running a private cloud for [Hack@UCF](https://hackucf.org) a student-run cybersecurity club at [The Unversity of Central Florida](https://ucf.com). All members are given access to this cloud as a place to experiment and learn without the fear of massive cloud bills. We also use the cloud to host our very own defensive cybersecurity competition [Horse Plinko](https://plinko.horse).
 
