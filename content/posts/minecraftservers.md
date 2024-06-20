@@ -6,6 +6,7 @@ author: "JontyMS"
 tags: ["minecraft", "servers", "self-hosting", "papermc"]
 ShowBreadCrumbs: false
 summary: 'This is a brief overview of diffrent minecraft servers. This is a great guide to picking the best one for your circumstances.'
+author: "Jonathan Styles"
 ---
 ## Vanilla Minecraft
 
