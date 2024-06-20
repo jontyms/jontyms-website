@@ -5,6 +5,9 @@ draft: false
 ShowToc: true
 params:
   ShowToc: true 
+author: "Jonathan Styles"
+description: "Summary of a my experience in the Horse Plinko Cyber Challenge 2023 (HPCC1). Covers competition details, cybersecurity challenges, preparation strategies, and lessons learned. Emphasizes the importance of backups, threat hunting, and persistent detection."
+tags: ["The Horse Plinko Incident", "HPCC1", "Cybersecurity competition", "Hack@UCF", "Cyber challenge", "Linux security", "Windows security", "Capture the flag", "CTF competition", "Cyber defense", "Cybersecurity strategies", "Blue team tactics", "Cybersecurity adventure", "Red team vs blue team", "IT security", "Plinkterns", "Cybersecurity challenges", "Hackathon", "Cybersecurity events", "HPCC1 competition"]
 ---
 
 Hey everyone,

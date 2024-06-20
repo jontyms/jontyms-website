@@ -2,6 +2,7 @@
 title: "Selfhosting v3"
 date: 2023-03-26T15:03:14-04:00
 draft: false
+author: "Jonathan Styles"
 ---
 ### Here are my goals for my selfhosting setup v3.
 - All containers updated with gitops

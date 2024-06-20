@@ -3,6 +3,9 @@ title: "Building a Private Cloud: A DevOps Approach"
 date: 2024-06-11T13:58:02+02:00
 draft: False
 ShowToc: true
+author: "Jonathan Styles"
+metaDescription: "Discover how Hack@UCF's private cloud empowers students with hands-on experience in cybersecurity and cloud computing. Learn about the hardware, networking, and software that drive our private cloud, and explore upcoming projects aimed at enhancing our infrastructure. Join us on this journey to build a resilient, innovative private cloud using a DevOps approach."
+tags: ["devops", "hack@ucf", "ansible", "openstack"]
 ---
 For the past year I have been involved in running a private cloud for [Hack@UCF](https://hackucf.org) a student-run cybersecurity club at [The Unversity of Central Florida](https://ucf.com). All members are given access to this cloud as a place to experiment and learn without the fear of massive cloud bills. We also use the cloud to host our very own defensive cybersecurity competition [Horse Plinko](https://plinko.horse).
 

@@ -3,6 +3,8 @@ title: "New Class Of Vulnerabilities Discovered (April Fools)"
 date: 2024-04-01T09:41:52-04:00
 draft: false
 author: "Jonathan Styles"
+description: "Summary of a humorous blog post describing a fictional cybersecurity vulnerability called Remote Bankruptcy Exploits (RBE). Highlights the satirical nature of the post and its playful take on startup vulnerabilities."
+tags: [RBE, Remote Bankruptcy Exploits, cybersecurity, vulnerabilities, April Fools, cloud security, serverless, startups, financial stability, tech humor, Jonathan Styles, NIST, CISA, University of South Florida]
 ---
 
 {{< alert class="alert" >}}
