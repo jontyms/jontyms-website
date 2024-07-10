@@ -75,7 +75,7 @@ The virtual machines in our admin tenant are deployed using [Terrafrom](https://
 Horse Plinko will use our new AWX install in order to deploy competitor machines and supporting infrastructure. Horse Plinko will also use Auth 2.0 in order to provided themed single sign on for the competition.
 
 ## 2. Auth 2.0
-Currently, different services we use all have different logins. In order to increase usability, we are going to move to SSO wherever we can. This will involve integrating into OnboardLite, OpenStack, OpenVPN, and RADIUS auth for the Wi-Fi.
+Currently, different services we use all have different logins. In order to increase usability, we are going to move to SSO wherever we can. This will involve integrating into OnboardLite, OpenStack, OpenVPN, and RADIUS auth for the Wi-Fi. [blog post](https://blog.gr4ytech.net/posts/Using-Keycloak-With-Openstack/)
 
 ## 3. AWX 
 Ansible playbook are currently run from developer laptops or the deployment node. We plan to move to deploying everything from AWX, to provide full CI/CD and configuration drift prevention. 
