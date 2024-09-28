@@ -8,27 +8,27 @@ author: "Jonathan Styles"
 - All containers updated with gitops
 - All containers scanned for cves
 - All apps that support use federated auth (ouath openidc ldap etc.)
-- All containers that don't receive frequent updates are built locally instead 
+- All containers that don't receive frequent updates are built locally instead
 - Container engine runs without root (maybe a v4)
 - All databases dumped before backup
 - Backups
 - Local backups for devices
 - Logging containers logs
-- Alerting 
+- Alerting
 
 ### Here is the basic plan of how to achieve this
 - Gitea for git server
 - Rennovatebot for updates
-- Quay for image registry 
+- Quay for image registry
 - Woodpecker for ci
-- Clair for scanning 
+- Clair for scanning
 - Traefik for reverse proxy
 - Tailscale for networking
 - Tailscale funnels for public access
-- Podman for rootless 
+- Podman for rootless
 - Keycloak for auth
 
-Overall I hope this setup will decrease the amount of ongoing maintenance, alert me to problems before they break stuff, and make sure my apps are up to date. 
+Overall I hope this setup will decrease the amount of ongoing maintenance, alert me to problems before they break stuff, and make sure my apps are up to date.
 
 ### Ongoing Questions
 - How to keep up with projects changelogs?
@@ -37,4 +37,3 @@ Overall I hope this setup will decrease the amount of ongoing maintenance, alert
 - How to backup databases in containers safely?
 
 ## Comments
-{{< chat selfhostingv3 >}}

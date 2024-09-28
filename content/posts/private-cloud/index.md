@@ -9,7 +9,7 @@ tags: ["devops", "hack@ucf", "ansible", "openstack"]
 ---
 For the past year I have been involved in running a private cloud for [Hack@UCF](https://hackucf.org) a student-run cybersecurity club at [The Unversity of Central Florida](https://ucf.com). All members are given access to this cloud as a place to experiment and learn without the fear of massive cloud bills. We also use the cloud to host our very own defensive cybersecurity competition [Horse Plinko](https://plinko.horse).
 
-This began is spring 2019 when the [Lockheed Martin Cyber Innovation Lab](https://www.ucf.edu/pegasus/ucf-opens-lockheed-martin-cyber-innovation-lab/) was opened. Along with this Hack@UCF also gained access to a fund for equipping and upkeep of the lab. The decision was made to invest in server hardware in order to provide the club with a private cloud platform. I have been involved since September 2023, and I am now in charge of the project. 
+This began is spring 2019 when the [Lockheed Martin Cyber Innovation Lab](https://www.ucf.edu/pegasus/ucf-opens-lockheed-martin-cyber-innovation-lab/) was opened. Along with this Hack@UCF also gained access to a fund for equipping and upkeep of the lab. The decision was made to invest in server hardware in order to provide the club with a private cloud platform. I have been involved since September 2023, and I am now in charge of the project.
 
 {{< alert class="success" >}}
 ### Support Hack@UCF: Empower the Next Generation of Cybersecurity Experts
@@ -19,11 +19,11 @@ At Hack@UCF, we are dedicated to fostering a dynamic learning environment where 
 For more information on sponsorship opportunities, please contact us [here](https://www.hackucf.org/sponsorship).
 {{< /alert >}}
 
-# The Hardware 
+# The Hardware
 
 {{< bundle-image caption="A picture of a UCF datacenter [source](https://arcc.ist.ucf.edu/)." altText="a picture of a datacenter" name="Cluster.png">}}
 
-The hardware is a bit of a mess with four generations of people making purchasing decision each with their own vision of what the cloud should be. 
+The hardware is a bit of a mess with four generations of people making purchasing decision each with their own vision of what the cloud should be.
 
 ## Networking
 
@@ -31,12 +31,12 @@ Our network infrastructure features 10 Gigabit Ethernet (GbE) backbone, with all
 
 {{< svg-figure caption="A Network Diagram" altText="Network Diagram" name="Infra-Network-Diagram.svg">}}
 
-## Servers 
+## Servers
 
 ### Manager Nodes
-All these servers are fairly new (purchased within the last year). Our manager nodes run RabbitMQ, a MariaDB cluster, HAProxy, and Horizon web UI, as well as other management daemons for various OpenStack services. These servers have a single SSD drive and AMD EPYC 7313P 16 Core, and 64GB of RAM. 
+All these servers are fairly new (purchased within the last year). Our manager nodes run RabbitMQ, a MariaDB cluster, HAProxy, and Horizon web UI, as well as other management daemons for various OpenStack services. These servers have a single SSD drive and AMD EPYC 7313P 16 Core, and 64GB of RAM.
 
-### Compute Nodes 
+### Compute Nodes
 These nodes run the Nova compute service; all virtual machines run on these hosts. A few of these hosts also house some of the cluster's NVMe storage.
 
 Compute 1a-1d are all in a single 2U Supermicro chassis. They have an AMD EPYC 7702P 64-Core processor, 512GB of memory, a SATA boot drive, and one NVMe storage drive.
@@ -52,20 +52,20 @@ Storage 2-4 are our NVMe storage servers, each with 12 drives.
 This is a old Dell Poweredege from UCF's surplus. This node runs the software used to deploy the rest of the nodes.
 
 # Initial Setup
-Once a server is in the rack, it is PXE booted from [MAAS](https://maas.io/). MAAS (metal-as-a-service) is a product from Canonical. We use it to quickly install operating systems and do a small amount of configuration with cloud-init. Once we install the operating system (always the most recent LTS Ubuntu) we run our baseline ansible playbook. The baseline script creates users, installs necessary packages, and sets up the firewall. 
+Once a server is in the rack, it is PXE booted from [MAAS](https://maas.io/). MAAS (metal-as-a-service) is a product from Canonical. We use it to quickly install operating systems and do a small amount of configuration with cloud-init. Once we install the operating system (always the most recent LTS Ubuntu) we run our baseline ansible playbook. The baseline script creates users, installs necessary packages, and sets up the firewall.
 
 Once all the servers are provisioned we run Kolla Ansible. Kolla Ansible is a Openstack project that deploys openstack fully containerized using ansible. Much better details of how to use Kolla Ansible is found in their documentation and is this [blog post](https://blog.gr4ytech.net/posts/Automating-Openstack-Deployment/) by another one of the sysadmins on the project.
 
-After Kolla has finished running we deploy Ceph using a playbook built on [cephadm-ansible](https://github.com/ceph/cephadm-ansible). 
+After Kolla has finished running we deploy Ceph using a playbook built on [cephadm-ansible](https://github.com/ceph/cephadm-ansible).
 
 # The Other Stuff
 
 {{< svg-figure caption="A dependency graph showing most services running on our cloud." altText="A dependency graph showing most services running on our cloud." name="Dependency-graph.svg">}}
 
 ## Assorted VMs
-The virtual machines in our admin tenant are deployed using [Terrafrom](https://www.terraform.io/) from our self hosted github runner. These vms include a [Portainer](https://www.portainer.io) host, a [Zabbix](https://www.zabbix.com) server, a [Wazuh](https://wazuh.com) cluster, Windows Active Directory servers, and a OpenVPN server. These vms are configured using a mix of manual steps and ansible playbooks. 
+The virtual machines in our admin tenant are deployed using [Terrafrom](https://www.terraform.io/) from our self hosted github runner. These vms include a [Portainer](https://www.portainer.io) host, a [Zabbix](https://www.zabbix.com) server, a [Wazuh](https://wazuh.com) cluster, Windows Active Directory servers, and a OpenVPN server. These vms are configured using a mix of manual steps and ansible playbooks.
 
-## OKD 
+## OKD
 [OKD](https://www.okd.io/) describes itself as "The Community Distribution of Kubernetes that powers Red Hat OpenShift." We use OKD to run [Planka](https://github.com/plankanban/planka) our trello replacement, [Keycloak](https://www.keycloak.org/) for our Auth 2.0 project and AWX for upcoming projects. OKD is deployed using their official ansible install scripts.
 
 
@@ -77,8 +77,8 @@ Horse Plinko will use our new AWX install in order to deploy competitor machines
 ## 2. Auth 2.0
 Currently, different services we use all have different logins. In order to increase usability, we are going to move to SSO wherever we can. This will involve integrating into OnboardLite, OpenStack, OpenVPN, and RADIUS auth for the Wi-Fi. [blog post](https://blog.gr4ytech.net/posts/Using-Keycloak-With-Openstack/)
 
-## 3. AWX 
-Ansible playbook are currently run from developer laptops or the deployment node. We plan to move to deploying everything from AWX, to provide full CI/CD and configuration drift prevention. 
+## 3. AWX
+Ansible playbook are currently run from developer laptops or the deployment node. We plan to move to deploying everything from AWX, to provide full CI/CD and configuration drift prevention.
 
 # Glossary of Terms
 
@@ -137,6 +137,3 @@ Ansible playbook are currently run from developer laptops or the deployment node
 **WireGuard:** A modern VPN that is simpler, faster, and more secure than traditional VPN protocols.
 
 **Zabbix:** An open-source monitoring software tool for various IT components, including networks, servers, virtual machines, and cloud services.
-
-## Comments
-{{< chat hackucf-private-cloud >}}

@@ -1,7 +1,7 @@
 baseURL: 'https://jontyms.com'
 languageCode: en-us
 title: JontyMS's Blog
-theme: 
+theme:
   - PaperMod
 enableRobotsTXT: true
 env: production
@@ -14,7 +14,23 @@ outputs:
     - HTML
     - RSS
     - JSON
+
+
 params:
+  comments: true
+  giscus:
+    data-repo: jontyms/jontyms-website
+    data-repo-id: R_kgDOGm4zXQ
+    data-category: website-comments
+    data-category-id: DIC_kwDOGm4zXc4Ci4V2
+    data-mapping: title
+    data-strict: 0
+    data-reactions-enabled: 1
+    data-emit-metadata: 0
+    data-input-position: bottom
+    data-theme: preferred_color_scheme
+    data-lang: en
+    crossorigin: anonymous
   env: production
   defaultTheme: auto
   ShowShareButtons: false

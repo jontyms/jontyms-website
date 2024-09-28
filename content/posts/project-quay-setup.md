@@ -47,7 +47,7 @@ services:
       - clair-net
     expose:
       - "8080"
-      - "8443"   
+      - "8443"
   quay-db:
     image: postgres:13-alpine
     environment:
@@ -67,7 +67,7 @@ services:
       timeout: 10s
       start_period: 10s
       retries: 3
-  
+
   redis:
     image: bitnami/redis:6.2
     environment:
@@ -84,7 +84,7 @@ services:
       timeout: 10s
       start_period: 10s
       retries: 3
-  
+
   clair:
     image: quay.io/projectquay/clair:4.6.0
     ports:
@@ -102,7 +102,7 @@ services:
       - quay-net
     expose:
       - "6060"
-    container_name: clair 
+    container_name: clair
   clair-db:
     image: postgres:13-alpine
     environment:
@@ -126,7 +126,7 @@ networks:
   quay-net:
   clair-net:
 ```
-You will need to create a directory at ` $POSTGRES_QUAY_CONFIG/initdb.d ` and create a file called ` enable-pg_trgm.sh `. In that file paste 
+You will need to create a directory at ` $POSTGRES_QUAY_CONFIG/initdb.d ` and create a file called ` enable-pg_trgm.sh `. In that file paste
 ```shell
 #!/bin/sh
 set -e
@@ -137,7 +137,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 EOSQL
 
 ```
-Quay requires the pg_trm module to function. Next create the clair config at ` $CLAIR_CONFIG/config.yaml ` and paste 
+Quay requires the pg_trm module to function. Next create the clair config at ` $CLAIR_CONFIG/config.yaml ` and paste
 ```yaml
 ---
 introspection_addr: :6061
@@ -167,18 +167,17 @@ notifier:
     target: "http://quay:8080/secscan/notification"
     callback: "http://clair:6060/api/v1/notifications"
 auth:
-  psk: 
+  psk:
     key: "REPLACE"
     iss: ["quay"]
 ```
-Next run un-comment the `command: config secret` line in the docker-compose and then run `docker compose up -d`. Pray that everything works( you can take a look with [lazydocker](https://github.com/jesseduffield/lazydocker)). Then navigate to the host at port 4783 and enter the login `quayconfig` and password `secret`. Guide to configure is at https://docs.projectquay.io/config_quay.html#config-using-tool. Enable the `Enable Security Scanning` option and put `http://clair:6060` as the endpoint and click generate PSK and place it in the clair config file at 
+Next run un-comment the `command: config secret` line in the docker-compose and then run `docker compose up -d`. Pray that everything works( you can take a look with [lazydocker](https://github.com/jesseduffield/lazydocker)). Then navigate to the host at port 4783 and enter the login `quayconfig` and password `secret`. Guide to configure is at https://docs.projectquay.io/config_quay.html#config-using-tool. Enable the `Enable Security Scanning` option and put `http://clair:6060` as the endpoint and click generate PSK and place it in the clair config file at
 ```
 auth:
-  psk: 
+  psk:
     key: "REPLACE"
     iss: ["quay"]
 ```
 When you are done configuring click valid configuration changes, then click download. Place the download tar in `$QUAY_CONFIG` then run `tar xvf quay-config.tar.gz`.
 Then run `docker compose restart quay`. Everything should now be working!!
 ## Comments
-{{< chat quaypoject-setup >}}

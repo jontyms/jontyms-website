@@ -19,10 +19,10 @@ The RBE vulnerability class represents a significant shift in the landscape of c
 
 ## How RBE Works
 
-RBE attacks leverage the power of serverless functions and auto-scaling features in cloud environments. By simply using a vulnerable system the startup will be billed leading to their eventual bankruptcy. 
+RBE attacks leverage the power of serverless functions and auto-scaling features in cloud environments. By simply using a vulnerable system the startup will be billed leading to their eventual bankruptcy.
 
 ## Real-World Implications
-The implications of RBE attacks are far-reaching and deeply concerning. Startups, known for their poor financial decisions and making mistakes are more vulnerable. 
+The implications of RBE attacks are far-reaching and deeply concerning. Startups, known for their poor financial decisions and making mistakes are more vulnerable.
 
 ## Exploitation Steps
 1. Google ``blog "serverless" startup``
@@ -32,7 +32,7 @@ The implications of RBE attacks are far-reaching and deeply concerning. Startups
 
 ## Mitigation Strategies
 
-To protect against RBE attacks, businesses must, 
+To protect against RBE attacks, businesses must,
 
 - Be smart use serverless carefully
 
@@ -43,4 +43,3 @@ The discovery of the RBE vulnerability class serves as a wake-up call for the te
 Stay tuned for our upcoming white paper, which will provide a comprehensive analysis of RBE exploits and detailed guidelines for prevention and mitigation.
 
 ## Comments
-{{< chat rbe >}}

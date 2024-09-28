@@ -4,7 +4,7 @@ date: 2023-10-14T07:41:52-04:00
 draft: false
 ShowToc: true
 params:
-  ShowToc: true 
+  ShowToc: true
 author: "Jonathan Styles"
 description: "Summary of a my experience in the Horse Plinko Cyber Challenge 2023 (HPCC1). Covers competition details, cybersecurity challenges, preparation strategies, and lessons learned. Emphasizes the importance of backups, threat hunting, and persistent detection."
 tags: ["The Horse Plinko Incident", "HPCC1", "Cybersecurity competition", "Hack@UCF", "Cyber challenge", "Linux security", "Windows security", "Capture the flag", "CTF competition", "Cyber defense", "Cybersecurity strategies", "Blue team tactics", "Cybersecurity adventure", "Red team vs blue team", "IT security", "Plinkterns", "Cybersecurity challenges", "Hackathon", "Cybersecurity events", "HPCC1 competition"]
@@ -21,7 +21,7 @@ So, here’s a massive shoutout to the organizers. Your dedication to [Hack@UCF]
 # The Game
 <blockquote>
 <p>
-Welcome, new cybersecurity hires (and by "cybersecurity hires," I mean "unpaid interns"), to the International Horse Plinko League (IHPL)! 
+Welcome, new cybersecurity hires (and by "cybersecurity hires," I mean "unpaid interns"), to the International Horse Plinko League (IHPL)!
 As the CEO of the International Horse Plinko League, it is my pleasure to welcome you to our great company. It’s certainly an interesting time to join us! After our expansion to an American branch in our last wave of hiring, we’ve continued to innovate new ways of bringing Horse Plinko to serve new markets and diverse business needs including the latest industry buzzwords, like "large language models" and "AI."
 </p>
 <p>
@@ -33,14 +33,14 @@ Much as it always is, the group of cybercriminals that call themselves the “Ho
 - HPCC1 Blue Team Packet
 </blockquote>
 
-HPCC1 has some elements of role play all the competitors were called 'Plinkterns.' We were serving as unpaid interns for our corporate overlords. 
-The scoring consisted 65% uptime checks and 35% injects, which are business tasks related to our duties, requiring a written submission via the official competition Discord. 
+HPCC1 has some elements of role play all the competitors were called 'Plinkterns.' We were serving as unpaid interns for our corporate overlords.
+The scoring consisted 65% uptime checks and 35% injects, which are business tasks related to our duties, requiring a written submission via the official competition Discord.
 
 {{< bundle-image name="hpcc1_netmap_99.png">}}
 
 For the competition we had 4 boxes we needed to secure 2 windows boxes running dns and wordpress, and 2 linux boxes. One was debian with a mariadb database on it and one was ubuntu with an vsftp server and a apache webgame server on it. The two linux boxes were scored with ssh as well. Our teammates Conner and Kevin handled the windows boxes and me an Ardian handled the linux boxes. (And a mostly ignored splunk box that was out of scope for red team)
 # Preparation
-As soon as we formed our team we started sending links back and forth with commands and blogs and stackoverflows all with cool ideas about what we should todo. ([This youtube video is great for learning about threat hunting](https://www.youtube.com/watch?v=EFgZPxpLKS0)). We decided our approach would be to write a script that removed all the low hanging fruit to buy us time to secure the more complex stuff. Speed was very important because the boxes would start "clean" and the instant the network unfroze red team would run scripts of their own. 
+As soon as we formed our team we started sending links back and forth with commands and blogs and stackoverflows all with cool ideas about what we should todo. ([This youtube video is great for learning about threat hunting](https://www.youtube.com/watch?v=EFgZPxpLKS0)). We decided our approach would be to write a script that removed all the low hanging fruit to buy us time to secure the more complex stuff. Speed was very important because the boxes would start "clean" and the instant the network unfroze red team would run scripts of their own.
 ```bash {linenos=true}
 
 #!/bin/bash
@@ -49,7 +49,7 @@ passwd -l root
 
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 echo "Protocol 2" >> /etc/ssh/sshd_config
-#SSH whitelist 
+#SSH whitelist
 echo "AllowUsers hkeating ubuntu" >> /etc/ssh/sshd_confi
 
 apt install ufw -y
@@ -130,12 +130,12 @@ PasswordAuthentication yes
 Match all
 PasswordAuthentication no
 ```
-But we ended up just using user whitelists. 
+But we ended up just using user whitelists.
 # Chapter 1 The Game Begins
-```bash 
-ssh debian@172.16.4.5 -c "su     do iptables -A INPUT -p tcp --dport 22 -j ACCEPT && sudo iptables -A INPUT -p      tcp --dport 3306 -j ACCEPT && sudo iptables -A INPUT -j DROP" 
+```bash
+ssh debian@172.16.4.5 -c "su     do iptables -A INPUT -p tcp --dport 22 -j ACCEPT && sudo iptables -A INPUT -p      tcp --dport 3306 -j ACCEPT && sudo iptables -A INPUT -j DROP"
 ```
-This command cost me the first 10 minutes of the competition. 10 crucial minutes. Because while the red team was loading up the machine with backdoors malware and misconfigurations, I was trying to figure out why dns was broken. Eventually I found that it was all outbound connections and ran ```iptables -F``` quickly followed by the script we created in chapter 0. Next I checked for sus connections using ```sudo ss -peunt``` and proceeded with some basic threat hunting. 
+This command cost me the first 10 minutes of the competition. 10 crucial minutes. Because while the red team was loading up the machine with backdoors malware and misconfigurations, I was trying to figure out why dns was broken. Eventually I found that it was all outbound connections and ran ```iptables -F``` quickly followed by the script we created in chapter 0. Next I checked for sus connections using ```sudo ss -peunt``` and proceeded with some basic threat hunting.
 ```bash
 who -a
 sudo nano /etc/ssh/sshd_config
@@ -146,21 +146,21 @@ sudo debsums
 systemctl list-units
 
 ```
-Then while looking in the systemd services I found the worst malware ever Jenkins. Some ```sudo systemctl disable jenkins && sudo systemctl stop jenkins && sudo usermod -L jenkins``` threat eliminated. Next I look through users ```sudo usermod root -L``` to disallow root login. Next I ran [PSPY](https://github.com/DominicBreuker/pspy) while maybe not the best tool for blue teamers it was still great to see all the processes that got started on your box. 
+Then while looking in the systemd services I found the worst malware ever Jenkins. Some ```sudo systemctl disable jenkins && sudo systemctl stop jenkins && sudo usermod -L jenkins``` threat eliminated. Next I look through users ```sudo usermod root -L``` to disallow root login. Next I ran [PSPY](https://github.com/DominicBreuker/pspy) while maybe not the best tool for blue teamers it was still great to see all the processes that got started on your box.
 ## Database
-Now to the main attraction on my box the database. This along with ssh were the only 2 scored services on my box. The database was mariadb. First I ran ```sudo mysqldump --all-databases -p``` so that I could restore if my ham handed database admin broke some stuff. Next I ran ```sudo mysql_secure_installation``` which walked me through setting a root password and deleting annon users and deleting the test db. Next I logged into mysql and ran some queries first ```USE mysql;``` followed by ```SELECT User,Host,Password FROM mysql.user;``` Then created a wordpress user and granted it privileges 
+Now to the main attraction on my box the database. This along with ssh were the only 2 scored services on my box. The database was mariadb. First I ran ```sudo mysqldump --all-databases -p``` so that I could restore if my ham handed database admin broke some stuff. Next I ran ```sudo mysql_secure_installation``` which walked me through setting a root password and deleting annon users and deleting the test db. Next I logged into mysql and ran some queries first ```USE mysql;``` followed by ```SELECT User,Host,Password FROM mysql.user;``` Then created a wordpress user and granted it privileges
 ```sql
 CREATE USER 'wordpress'@'172.16.4.7' IDENTIFIED WITH authentication_plugin BY '***';
 GRANT ALL ON wordpress.* TO 'wordpress'@'172.16.4.7';
 ```
 Password created by [diceware](https://diceware.dmuth.org/)
 # Chapter 2
-After Lunch the fun really started other than finding a few ssh keys in ~/.ssh/authorized keys nothing really happened on the db box. The real fun was on the game box. Upon logging in he ran the same script as me and started securing vsftp. I was called in to fix a 403 error in the apache server. 
+After Lunch the fun really started other than finding a few ssh keys in ~/.ssh/authorized keys nothing really happened on the db box. The real fun was on the game box. Upon logging in he ran the same script as me and started securing vsftp. I was called in to fix a 403 error in the apache server.
 ```php
 <Directory /var/www/>
         Options -Indexes -FollowSymLinks
         AllowOverride None
-        Require all granted <--- was set to denied 
+        Require all granted <--- was set to denied
 </Directory>
 ```
 After that apache came back up and we started notice red team getting shells on the box (thanks to pspy). I decided to look into the apache access log.
@@ -192,7 +192,7 @@ Next on the game box I ran ```debsums -c``` and found ```/lib/x86_64-linux-gnu/s
 dpkg -S /lib/x86_64-linux-gnu/security/pam_unix.so
 apt reinstall libpam-modules
 ```
-Then we made the fatal mistake having to much uptime. The one thing red team cant stand is people actually doing good. 
+Then we made the fatal mistake having to much uptime. The one thing red team cant stand is people actually doing good.
 So red team began messing with us ```mv /bin/ls /bin/sl```  I fixed it by running ```sudo apt reinstall coreutils```.
 Basically scorched earth
 ```bash
@@ -211,7 +211,7 @@ We were able to restore ftp by killing the fork bomb and moving one of our hidde
 bash > /dev/urandom
 iptables -I INPUT -p tcp --dport 22 -j DROP
 ```
-At the end of the game we had ftp up but our apache web game was yetted and we didn't have a backup but all our other services were up. 
+At the end of the game we had ftp up but our apache web game was yetted and we didn't have a backup but all our other services were up.
 
 # Summary of Findings and Future Recommendations
 ### Better Finding of Persistance
@@ -219,14 +219,12 @@ After consulting with the red team after the game we learned the only persistanc
 ```crontab
 * * * * * /bin/sh -c /usr/bin/flock -n /tmp/fcj.lockfile /bin/ssһd
 ```
-but wait thats just ssh. No its ssh[d](https://unicodeplus.com/U+04BB) Cyrillic Small Letter Shha. GG red team. 
+but wait thats just ssh. No its ssh[d](https://unicodeplus.com/U+04BB) Cyrillic Small Letter Shha. GG red team.
 ### Switch to ansible for initial config scrips
 It was too time consuming to download ```chmod +x``` and run the scripts ansible would solve that problem.
 ### Find bad binaries
 ```debsums``` only checks dpkg installed files it doesn't find stuff put there by ne'er-do-wells. Still working on a solution.
 ### Networking logging is important
-They had splunk setup but none of us knew how to use it so we had no connection logs. 
+They had splunk setup but none of us knew how to use it so we had no connection logs.
 ### Backups Backups and Backups
 Upon getting familiar with your environment make a list of files that need to be backed up and the restore procedures for each service. We could have been screwed if red team rm'd /var/www any earlier.
-## Comments
-{{< chat HPCC1 >}}

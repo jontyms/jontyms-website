@@ -94,6 +94,3 @@ These parameters help enhance security by allowing you to control both the valid
 ## Step 7 - Monitor your Certificates
 Ensure all renewals process as normal, and be proactive in checking that domain issuance is functioning as normal.
 Ensure the CAA records and their effects are well documented and understood by all relevant parties.
-
-## Comments
-{{< chat caa-records >}}
