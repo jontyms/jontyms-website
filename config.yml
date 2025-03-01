@@ -1,4 +1,4 @@
-baseURL: 'https://jontyms.com'
+baseURL: "https://jontyms.com"
 languageCode: en-us
 title: JontyMS's Blog
 theme:
@@ -18,7 +18,6 @@ outputs:
     - HTML
     - RSS
     - JSON
-
 
 params:
   comments: true
@@ -46,32 +45,41 @@ params:
   social:
     rss: true
     fediverse_creator: "@jontyms@fosstodon.org"
-    github: 'https://github.com/jontyms'
+    github: "https://github.com/jontyms"
   homeInfoParams:
-      Title: 'Hi there!'
-      Content: >
-       - Welcome to my site
+    Title: "Hi there!"
+    Content: >
+      - Welcome to my site
+  socialIcons: # optional
+    - name: mastodon
+      title: "Mastodon"
+      url: "https://fosstodon.org/@jontyms"
+    - name: github
+      title: "GitHub"
+      url: "https://github.com/jontyms"
+    - name: linkedin
+      title: "LinkedIn"
+      url: "https://www.linkedin.com/in/jonathan-m-styles"
   editPost:
-      URL: "https://github.com/jontyms/jontyms-website"
-      Text: "Suggest Changes" # edit text
+    URL: "https://github.com/jontyms/jontyms-website"
+    Text: "Suggest Changes" # edit text
 sitemap:
   changefreq: monthly
   filename: sitemap.xml
   priority: 0.5
 menu:
-    main:
-        - identifier: About
-          name: About
-          url: /about/
-          weight: 10
-        - identifier: Posts
-          name: Posts
-          url: /posts/
-          weight: 20
-        - name: Search
-          url: search/
-          weight: 10
-          weight: 20
+  main:
+    - identifier: About
+      name: About
+      url: /about/
+      weight: 10
+    - identifier: Posts
+      name: Posts
+      url: /posts/
+      weight: 20
+    - name: Search
+      url: search/
+      weight: 10
 markup:
   defaultMarkdownHandler: goldmark
   markup:
