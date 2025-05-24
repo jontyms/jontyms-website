@@ -8,6 +8,8 @@ env: production
 enableEmoji: true
 enableGitInfo: false
 enableInlineShortcodes: true
+copyright: CC BY 4.0 - Jonathan Styles
+
 pagination:
   disableAliases: false
   pagerSize: 10
@@ -15,13 +17,31 @@ pagination:
 
 outputs:
   home:
-    - HTML
-    - RSS
-    - JSON
+    - html
+    - rss
+  section:
+    - html
+    - rss
+  taxonomy:
+    - html
+  term:
+    - html
 
 params:
   mode: auto
   env: production
+  author:
+    name: Jonathan Styles
+  social:
+    - name: "Github"
+      icon: simple:github
+      url: "https://github.com/jontyms"
+    - name: "Mastodon"
+      icon: simple:mastodon
+      url: "https://fosstodon.org/@jontyms"
+    - name: "Linkedin"
+      icon: simple:linkedin
+      url: "https://www.linkedin.com/in/jonathan-m-styles"
 sitemap:
   changefreq: monthly
   filename: sitemap.xml

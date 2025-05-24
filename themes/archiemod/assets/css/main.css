@@ -11,6 +11,11 @@
   --shadow-z0: 2px 2px var(--shadow-color);
   --shadow-z1: 4px 4px var(--shadow-color);
   --shadow-z2: 8px 8px var(--shadow-color);
+  --shadow-c1: 8px 8px var(--maincolor);
+  --codeblockcolor: #323329;
+  --code-block-lang-fg: white;
+  --code-block-lang-bg: green;
+  --highlight-color: navyblue;
 }
 html {
   color: #232333;
@@ -78,7 +83,6 @@ ul > li::before {
 
 /* Images */
 img {
-  border: 3px solid #ececec;
   max-width: 100%;
 }
 
@@ -87,11 +91,23 @@ figure {
   display: inline-block;
   margin: 0;
   max-width: 100%;
+
+}
+
+figure a {
+    border-bottom: unset;
+}
+
+a:hover {
+  background-color: unset;
 }
 
 figure img {
   max-height: 500px;
+  box-shadow: var(--shadow-z1);
 }
+
+
 
 @media screen and (min-width: 600px) {
   figure {
@@ -122,7 +138,7 @@ pre {
 }
 
 .highlight pre ::selection {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--highlight-color);
   color: inherit;
 }
 
@@ -164,7 +180,7 @@ section.list-item {
   box-shadow: var(--shadow-z2);
 }
 
-article :is(h1) {
+article :is(h1), .page-title {
   display: grid;
   grid-template-columns: auto 1fr; /* tiny column for “#”, big one for text */
   gap: 0.5ch; /* space between them                    */
@@ -175,7 +191,7 @@ article :is(h1) {
   font-size: 28px;
 }
 
-article h1::before {
+h1::before {
   content: "#";
   color: var(--maincolor);
 }
@@ -244,11 +260,10 @@ h6::before {
 
 /* Footer */
 footer {
-  display: flex;
   align-items: center;
-  border-top: 0.4rem dotted var(--bordercl);
-  padding: 2rem 0rem;
-  margin-top: 2rem;
+  // border-top: 3px solid var(--maincolor);
+  padding: .5rem 0rem;
+  margin-top: .25rem;
 }
 .soc {
   display: flex;
@@ -265,8 +280,11 @@ footer {
 }
 
 /* Common */
-.title h1 {
-  margin-bottom: 0;
+.title {
+    display: grid;
+    grid-template-columns: auto 20fr; /* tiny column for “#”, big one for text */
+    gap: 0.5ch; /* space between them     */
+    width:  content;
 }
 
 time {
@@ -331,11 +349,10 @@ article .title {
   display: flex;
   justify-content: space-between;
 }
-.tags li::before {
-  content: "🏷 ";
-}
+
 .tags a {
-  border-bottom: 3px solid var(--maincolor);
+  border-bottom: 2px solid var(--maincolor);
+  font-size: 12px;
 }
 .tags a:hover {
   color: white;
@@ -358,14 +375,16 @@ svg {
 .highlight {
   position: relative;
   -webkit-overflow-scrolling: touch;
+  box-shadow: var(--shadow-z1);
+}
+.highlight pre {
+background-color: var(--codeblockcolor) !important;
 }
 .highlight pre code[class*="language-"] {
   -webkit-overflow-scrolling: touch;
 }
 .highlight pre code[class*="language-"]::before {
-  background: black;
-  border-radius: 0 0 0.25rem 0.25rem;
-  color: white;
+  color: var(--code-block-color-bg);
   font-size: 12px;
   letter-spacing: 0.025rem;
   padding: 0.1rem 0.5rem;
@@ -379,53 +398,53 @@ svg {
 .highlight pre code[class="language-javaScript"]::before,
 .highlight pre code[class="language-js"]::before {
   content: "js";
-  background: #f7df1e;
-  color: black;
+  background: var(--code-block-lang-bg);
+  color: var(--code-block-lang-fg);
 }
 .highlight pre code[class*="language-yml"]::before,
 .highlight pre code[class*="language-yaml"]::before {
   content: "yaml";
-  background: #f71e6a;
-  color: white;
+  background: var(--code-block-lang-bg);
+  color: var(--code-block-lang-fg);
 }
 .highlight pre code[class*="language-shell"]::before,
 .highlight pre code[class*="language-bash"]::before,
 .highlight pre code[class*="language-sh"]::before {
   content: "shell";
-  background: green;
-  color: white;
+  background: var(--code-block-lang-bg);
+  color: var(--code-block-lang-fg);
 }
 .highlight pre code[class*="language-json"]::before {
   content: "json";
-  background: dodgerblue;
-  color: #000000;
+  background: var(--code-block-lang-bg);
+  color: var(--code-block-lang-fg);
 }
 .highlight pre code[class*="language-python"]::before,
 .highlight pre code[class*="language-py"]::before {
   content: "py";
-  background: blue;
-  color: yellow;
+  background: var(--code-block-lang-bg);
+  color: var(--code-block-lang-fg);
 }
 .highlight pre code[class*="language-css"]::before {
   content: "css";
-  background: cyan;
-  color: black;
+  background: var(--code-block-lang-bg);
+  color: var(--code-block-lang-fg);
 }
 .highlight pre code[class*="language-go"]::before {
   content: "Go";
-  background: cyan;
-  color: royalblue;
+  background: var(--code-block-lang-bg);
+  color: var(--code-block-lang-fg);
 }
 .highlight pre code[class*="language-md"]::before,
 .highlight pre code[class*="language-md"]::before {
   content: "Markdown";
-  background: royalblue;
-  color: whitesmoke;
+  background: var(--code-block-lang-bg);
+  color: var(--code-block-lang-fg);
 }
 .highlight pre code[class*="language-ts"]::before {
   content: "TS";
-  background: #3178c6;
-  color: #fff;
+  background: var(--code-block-lang-bg);
+  color: var(--code-block-lang-fg);
 }
 
 /* table */

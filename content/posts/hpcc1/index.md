@@ -41,7 +41,7 @@ The scoring consisted 65% uptime checks and 35% injects, which are business task
 For the competition we had 4 boxes we needed to secure 2 windows boxes running dns and wordpress, and 2 linux boxes. One was debian with a mariadb database on it and one was ubuntu with an vsftp server and a apache webgame server on it. The two linux boxes were scored with ssh as well. Our teammates Conner and Kevin handled the windows boxes and me an Ardian handled the linux boxes. (And a mostly ignored splunk box that was out of scope for red team)
 # Preparation
 As soon as we formed our team we started sending links back and forth with commands and blogs and stackoverflows all with cool ideas about what we should todo. ([This youtube video is great for learning about threat hunting](https://www.youtube.com/watch?v=EFgZPxpLKS0)). We decided our approach would be to write a script that removed all the low hanging fruit to buy us time to secure the more complex stuff. Speed was very important because the boxes would start "clean" and the instant the network unfroze red team would run scripts of their own.
-```bash {linenos=true}
+```bash
 
 #!/bin/bash
 #Thrown together by Ardian Peach (oatzs) for the Fall 2023 KnightHacksHorse Plinko Cyber Challenge at the University of Central Florida

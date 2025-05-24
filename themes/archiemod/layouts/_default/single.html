@@ -20,11 +20,12 @@
           {{ if ne .Type "page" }}
           {{ if gt .Params.tags 0 }}
           <nav class="nav tags">
-            <ul class="tags">
+            <p class="tags">
+                <b>Tags: </b>
               {{ range .Params.tags }}
-              <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+              <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
               {{ end }}
-            </ul>
+            </p>
           </nav>
           {{ end }}
           {{ end }}
@@ -40,15 +41,6 @@
       {{ end }}
     </div>
 
-    <!-- Disqus -->
-    {{- $.Scratch.Set "isDisqus" true -}}
-    {{ if not .Site.Config.Services.Disqus.Shortname }}
-    {{- $.Scratch.Set "isDisqus" false -}}
-    {{ end }}
-
-    {{- if eq ($.Scratch.Get "isDisqus") true -}}
-    {{- partial "disqus.html" . -}}
-    {{- end -}}
   </article>
 </main>
 {{ end }}
