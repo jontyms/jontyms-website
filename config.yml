@@ -2,7 +2,7 @@ baseURL: "https://jontyms.com"
 languageCode: en-us
 title: JontyMS's Blog
 theme:
-  - archie
+  - archiemod
 enableRobotsTXT: true
 env: production
 enableEmoji: true
