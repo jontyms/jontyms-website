@@ -1,4 +1,4 @@
-baseURL: "https://jontyms.com"
+#baseURL: "https://jontyms.com"
 languageCode: en-us
 title: JontyMS's Blog
 theme:
