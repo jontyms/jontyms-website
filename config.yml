@@ -2,7 +2,7 @@ baseURL: "https://jontyms.com"
 languageCode: en-us
 title: JontyMS's Blog
 theme:
-  - PaperMod
+  - archie
 enableRobotsTXT: true
 env: production
 enableEmoji: true
@@ -20,49 +20,8 @@ outputs:
     - JSON
 
 params:
-  comments: true
-  giscus:
-    data-repo: jontyms/jontyms-website
-    data-repo-id: R_kgDOGm4zXQ
-    data-category: website-comments
-    data-category-id: DIC_kwDOGm4zXc4Ci4V2
-    data-mapping: title
-    data-strict: 0
-    data-reactions-enabled: 1
-    data-emit-metadata: 0
-    data-input-position: bottom
-    data-theme: preferred_color_scheme
-    data-lang: en
-    crossorigin: anonymous
+  mode: auto
   env: production
-  defaultTheme: auto
-  ShowShareButtons: false
-  ShowFullTextinRSS: true
-  ShowRssButtonInSectionTermList: true
-  ShowReadingTime: true
-  assets:
-    disableHLJS: true
-  social:
-    rss: true
-    fediverse_creator: "@jontyms@fosstodon.org"
-    github: "https://github.com/jontyms"
-  homeInfoParams:
-    Title: "Hi there!"
-    Content: >
-      - Welcome to my site
-  socialIcons: # optional
-    - name: mastodon
-      title: "Mastodon"
-      url: "https://fosstodon.org/@jontyms"
-    - name: github
-      title: "GitHub"
-      url: "https://github.com/jontyms"
-    - name: linkedin
-      title: "LinkedIn"
-      url: "https://www.linkedin.com/in/jonathan-m-styles"
-  editPost:
-    URL: "https://github.com/jontyms/jontyms-website"
-    Text: "Suggest Changes" # edit text
 sitemap:
   changefreq: monthly
   filename: sitemap.xml
