@@ -16,9 +16,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
 	<meta property="og:image" content="{{ .Site.Params.og_image }}"/>
-	{{ with .OutputFormats.Get "rss" -}}
-	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-	{{ end -}}
+	{{ with .OutputFormats.Get "rss" }}
+       {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+    {{ end }}
+
 
 	{{- template "_internal/opengraph.html" . -}}
 	{{- template "_internal/twitter_cards.html" . -}}
