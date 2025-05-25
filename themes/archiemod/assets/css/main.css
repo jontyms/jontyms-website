@@ -351,7 +351,6 @@ article .title {
 }
 
 .callout-alert {
-  color: #000000;
   background-color: transparent;
   border-width: 3px;
   border-style: solid;
@@ -359,11 +358,9 @@ article .title {
 }
 
 .callout-custom {
-  color: #000000;
 }
 
 .callout-tip {
-  color: #000000;
   background-color: transparent;
   border-width: 3px;
   border-style: solid;
@@ -371,7 +368,6 @@ article .title {
 }
 
 .callout-warning {
-  color: #000000;
   background-color: transparent;
   border-width: 3px;
   border-style: solid;
