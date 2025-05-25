@@ -31,17 +31,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root{
+    --dark-grey: oklch(0.6201 0 0);
     --maincolor: var(--palette-blue);
     --callouctcolor: var(--palette-blue);
-    --hovercolor: var(--palette-mint);
-    --darkMaincolor: var(--palette-mint);
-    --shadow-color: oklch(0.7 0 0);  /* Dark grey for shadows */
-    --border-color: var(--palette-mint);
+    --hovercolor: var(--dark-grey);
+    --darkMaincolor: var(--dark-grey);
+    --shadow-color: oklch(0.3715 0 0);  /* Dark grey for shadows */
+    --border-color: var(--dark-grey);
     --background-color: oklch(0.1 0 0);  /* Black background */
     --codeblockcolor: oklch(0.3 0 0);  /* Dark grey for code blocks */
     --highlight-color: var(--palette-pink);
-    --title-bg: var(--palette-mint);
-    --bordercl: var(--palette-mint);
+    --title-bg: var(--dark-grey);
+    --bordercl: var(--dark-grey);
     --text-1: oklch(0.9 0 0);  /* White text for high contrast */
     --text-2: oklch(0.7 0 0);  /* Light grey for secondary text */
   }
@@ -230,7 +231,7 @@ h1::before {
 
 article :is(h2) {
   padding: 5px;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   box-shadow: var(--shadow-z1);
   font-size: 24px;
 }
