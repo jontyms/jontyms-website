@@ -67,13 +67,7 @@ openstack volume set --state available --detach f430cbcf-ab8c-466d-86d2-9f47c5ce
 Once the application pods were working again, the worker nodes ran out of RAM. This is a problem due to the aforementioned autoscaling bugs with OKD. After manually starting 2 more workers, the applications stabilized.
 
 
-{{< alert class="info" >}}
-**Rant in a Box** \
-The OKD developers, in their infinite wisdom, decided to switch from Fedora CoreOS to CentOS Stream CoreOS. This massive switch was made 'easy' and 'flawless' due to CoreOS being a container operating system where the entire root filesystem can be easily replaced with the new image. So, to autoscale, OKD spins up a new instance on OpenStack. This node is using a Fedora CoreOS 39 image. The instance then pulls down its configuration and starts downloading the update to CentOS Stream CoreOS. Once the update is complete, the instance restarts and the new CoreOS image attempts to boot. CoreOS will not boot because the boot filesystem has new ext4 features enabled that are not supported by the older kernel.
-
-The recovery steps are to attach the disk image to an instance running a newer kernel and disable the ext4 features. Then the node can boot normally.
-
-{{< /alert >}}
+{{< callout type="alert" text="The OKD developers, in their infinite wisdom, decided to switch from Fedora CoreOS to CentOS Stream CoreOS. This massive switch was made 'easy' and 'flawless' due to CoreOS being a container operating system where the entire root filesystem can be easily replaced with the new image. So, to autoscale, OKD spins up a new instance on OpenStack. This node is using a Fedora CoreOS 39 image. The instance then pulls down its configuration and starts downloading the update to CentOS Stream CoreOS. Once the update is complete, the instance restarts and the new CoreOS image attempts to boot. CoreOS will not boot because the boot filesystem has new ext4 features enabled that are not supported by the older kernel. The recovery steps are to attach the disk image to an instance running a newer kernel and disable the ext4 features. Then the node can boot normally." >}}
 
 # Lessons Learned Follow-Up Steps
 

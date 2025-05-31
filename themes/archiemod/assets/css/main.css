@@ -103,16 +103,14 @@ a:hover {
 }
 
 ul {
-  list-style: none;
-  padding-left: 2ch;
+  list-style: disc; /* Use bullets */
+  padding-left: 1.5em; /* Add padding for better alignment */
 }
 ul li {
-  text-indent: -2ch;
+  margin-left: 1em; /* Ensure indentation is uniform */
+  text-indent: 0; /* Remove negative indent to align bullets */
 }
-ul > li::before {
-  content: "* ";
-  font-weight: bold;
-}
+
 
 /* Images */
 img {
