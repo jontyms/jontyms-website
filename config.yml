@@ -27,9 +27,6 @@ params:
     - name: "Mastodon"
       icon: simple:mastodon
       url: "https://fosstodon.org/@jontyms"
-    - name: "Linkedin"
-      icon: simple:linkedin
-      url: "https://www.linkedin.com/in/jonathan-m-styles"
 sitemap:
   changefreq: monthly
   filename: sitemap.xml

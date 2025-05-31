@@ -2,6 +2,7 @@
 date: 2021-10-18
 draft: false
 ShowBreadCrumbs: false
+title: About Me
 ---
 Hi I'm jontyms
 ## My Pc

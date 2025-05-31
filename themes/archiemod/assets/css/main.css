@@ -198,10 +198,19 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   line-height: 2.5em;
+  align-items: center;
 }
 
 header .main {
   font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;  /* adjust as needed */
+  height: 40px;
+  margin-right: 10px;
 }
 
 section.list-item {
