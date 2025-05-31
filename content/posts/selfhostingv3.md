@@ -4,10 +4,11 @@ date: 2023-03-26T15:03:14-04:00
 draft: false
 author: "Jonathan Styles"
 ---
-### Here are my goals for my selfhosting setup v3.
+# Here are my goals for my selfhosting setup v3.
 - All containers updated with gitops
 - All containers scanned for cves
 - All apps that support use federated auth (ouath openidc ldap etc.)
+<!--more-->
 - All containers that don't receive frequent updates are built locally instead
 - Container engine runs without root (maybe a v4)
 - All databases dumped before backup
@@ -16,7 +17,7 @@ author: "Jonathan Styles"
 - Logging containers logs
 - Alerting
 
-### Here is the basic plan of how to achieve this
+# Here is the basic plan of how to achieve this
 - Gitea for git server
 - Rennovatebot for updates
 - Quay for image registry

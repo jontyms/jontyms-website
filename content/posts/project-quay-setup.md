@@ -6,6 +6,7 @@ author: "Jonathan Styles"
 ---
 With docker deleting open source organizations it might be time to selfhost your own container registry.
 Project Quay is the open source version of Redhat Quay, the container registry that powers quay.io. It can be configured as a pull through cache (useful for saving bandwidth). Not a lot of great guides exist for how to setup quay using docker-compose so here it is.
+<!--more-->
 ```yaml
 ---
 services:
