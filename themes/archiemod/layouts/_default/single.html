@@ -23,7 +23,7 @@
             <p class="tags">
                 <b>Tags: </b>
               {{ range .Params.tags }}
-              <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+              <a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}">#{{ . }}</a>
               {{ end }}
             </p>
           </nav>

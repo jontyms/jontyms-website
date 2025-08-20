@@ -5,3 +5,6 @@ resources/_gen/.direnv
 resources/
 result
 .direnv
+*.deb
+*.rpm
+*.tar.gz

@@ -42,7 +42,7 @@ menu:
       url: /posts/
       weight: 20
     - name: Tags
-      url: tags/
+      url: /tags/
       weight: 10
 markup:
   defaultMarkdownHandler: goldmark
