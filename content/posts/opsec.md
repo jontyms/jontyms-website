@@ -49,6 +49,3 @@ Also most of my most important files that are synced to my Nextcloud instance on
 
 ## Ublock Origin
 I love it, I install it on all my browsers. This is my reason for using Firefox in most places. Where I can't use the full version I use Ublock Lite.
-
-## Comments
-{{< chat .Name >}}
