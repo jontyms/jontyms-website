@@ -2,7 +2,6 @@
 title: "Overview of Minecraft Server Hosting Technologies"
 date: 2021-11-06T11:20:56-04:00
 draft: false
-author: "JontyMS"
 tags: ["minecraft", "servers", "self-hosting", "papermc"]
 ShowBreadCrumbs: false
 summary: 'This is a brief overview of diffrent minecraft servers. This is a great guide to picking the best one for your circumstances.'
